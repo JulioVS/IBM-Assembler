@@ -6,7 +6,7 @@ DEMO1    CSECT ,             COMMA REQUIRED IF COMMENT ON THIS STMT
          LARL  12,DEMO1           Load the address of DEMO1 in R12
          USING DEMO1,12           Use R12 as base register
          LH    3,Int1             Load Int1 into R3
-         LR    15,3               Copy R3 to R 15 (sets return code)
+         LR    15,3               Copy R3 to R15 (sets return code)
          BR    14                 End program (return to caller)
 *---------------------------------------------------------------------*
 *
