@@ -2,8 +2,7 @@
 export ASKEY=`zowe tso start address-space --sko`
 
 # Send commands to TSO Address Space
-# Load UNIT1L program and see registers
-zowe tso send address-space $ASKEY --data "test (unit1l)"
+zowe tso send address-space $ASKEY --data "test (UNIT1L)"
 zowe tso send address-space $ASKEY --data "LISTPSW"  
 # Examine registers - Initial state
 zowe tso send address-space $ASKEY --data "l 0r:15r"
