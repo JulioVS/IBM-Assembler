@@ -14,3 +14,5 @@ zowe tso send address-space $ASKEY --data "l 0r:15r"
 
 # End TSO Test session
 zowe tso send address-space $ASKEY --data "end"     
+
+# RUN THIS AS: ./shell/LAB101.sh

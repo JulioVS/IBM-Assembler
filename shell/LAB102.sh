@@ -2,7 +2,7 @@
 export ASKEY=`zowe tso start address-space --sko`
 
 # Send commands to TSO Address Space
-zowe tso send address-space $ASKEY --data "test (UNIT1LY)"
+zowe tso send address-space $ASKEY --data "test (LAB102)"
 zowe tso send address-space $ASKEY --data "LISTPSW"  
 
 # Examine registers - Initial state
@@ -15,4 +15,4 @@ zowe tso send address-space $ASKEY --data "l 0r:15r"
 # End TSO Test session
 zowe tso send address-space $ASKEY --data "end"     
 
-# RUN THIS AS: ./shell/UNIT1LY.sh
+# RUN THIS AS: ./shell/LAB102.sh
