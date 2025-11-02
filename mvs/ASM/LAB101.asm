@@ -60,7 +60,7 @@ LAB101   CSECT ,             COMMA REQUIRED IF COMMENT ON THIS STMT
 *
 *---------------------------------------------------------------------*
          DC    H'0'               Invalid opcode causes abend S0C1
-*        028                      Instruct : X'0000'
+*        028                      Value    : X'0000'
 *                                 Length   : 1 Halfword  (2 bytes)
 *---------------------------------------------------------------------*
 *  --->  Assembler begins Literal pool here

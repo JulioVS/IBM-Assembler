@@ -43,17 +43,15 @@ LAB102   CSECT ,             COMMA REQUIRED IF COMMENT ON THIS STMT
 *        00E                      Length   : 3 Halfwords (6 bytes)
 *        C09                      R5  --->   X'.... .... 0000 00BB'
 *
-*
 *  --->  Replace this instruction by its IMMEDIATE OPERAND equivalent
 *
          LHI   6,2048             Instruct : X'A768 0800'
 *        014                      Length   : 2 Halfwords (4 bytes)
 *        A78                      R6  --->   X'.... .... 0000 0800'
 *
-*
 *---------------------------------------------------------------------*
          DC    H'0'               Invalid opcode causes abend S0C1
-*        018                      Instruct : X'0000'
+*        018                      Value    : X'0000'
 *                                 Length   : 1 Halfword  (2 bytes)
 *---------------------------------------------------------------------*
 *  --->  Assembler begins Literal pool here
