@@ -1,12 +1,12 @@
 *---------------------------------------------------------------------*
 *                                                                     *
 *---+----1----+----2----+----3----+----4----+----5----+----6----+----7*
-UNIT1LY  CSECT ,             COMMA REQUIRED IF COMMENT ON THIS STMT
+UNIT1L2  CSECT ,             COMMA REQUIRED IF COMMENT ON THIS STMT
 *---------------------------------------------------------------------*
-         LARL  12,UNIT1LY         Load the address of LAB102 in R12
+         LARL  12,UNIT1L2         Load the address of UNIT1L2 in R12
 *        000                      Instruct : X'C0C0 0000 0000'
 *        C00                      Length   : 3 Halfwords (6 bytes)
-         USING UNIT1LY,12         Use R12 as base register
+         USING UNIT1L2,12         Use R12 as base register
 *---------------------------------------------------------------------*
 *
          LY    5,=F'187'          Address  : X'0000 0006'
@@ -37,7 +37,8 @@ UNIT1LY  CSECT ,             COMMA REQUIRED IF COMMENT ON THIS STMT
 *                                 Instruct : X'0000'
 *                                 Length   : 1 Halfword  (2 bytes)
 *---------------------------------------------------------------------*
-*  --->  Assembler begins Literal pool here
+*  --->  Assembler begins Literal pool here   (Fullword alignment)
+*
 *        018   First Fullword Literal
 *        ...   ...
 *        ...   First Halfword Literal

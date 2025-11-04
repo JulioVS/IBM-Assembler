@@ -63,7 +63,8 @@ LAB101   CSECT ,             COMMA REQUIRED IF COMMENT ON THIS STMT
 *        028                      Value    : X'0000'
 *                                 Length   : 1 Halfword  (2 bytes)
 *---------------------------------------------------------------------*
-*  --->  Assembler begins Literal pool here
+*  --->  Assembler begins Literal pool here   (Fullword alignment)
+*
 *        030   First Fullword Literal
 *        ...   ...
 *        ...   First Halfword Literal
