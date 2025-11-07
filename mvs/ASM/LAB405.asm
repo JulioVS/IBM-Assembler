@@ -1,12 +1,12 @@
 *---------------------------------------------------------------------*
 *                                                                     *
 *---+----1----+----2----+----3----+----4----+----5----+----6----+----7*
-LAB403   CSECT ,             COMMA REQUIRED IF COMMENT ON THIS STMT
+LAB405   CSECT ,             COMMA REQUIRED IF COMMENT ON THIS STMT
 *---------------------------------------------------------------------*
          STM   14,12,12(13)       Save caller's registers
 *
-         LARL  12,LAB403          Load the address of LAB403 in R12
-         USING LAB403,12          Use R12 as base register
+         LARL  12,LAB405          Load the address of LAB405 in R12
+         USING LAB405,12          Use R12 as base register
 *
          LA    15,SAVEAREA        R15 temporarily points to my sv area
          ST    15,8(,13)          Caller's save area points to mine
@@ -14,32 +14,40 @@ LAB403   CSECT ,             COMMA REQUIRED IF COMMENT ON THIS STMT
          LR    13,15              R13 points to my save area
 *---------------------------------------------------------------------*
 *
-*        In this lab, you will print the employee date of birth
-*        in the format yyyy-mm-dd
+*        For this lab, you must check if Emp_MGR is 'Y'
+*        - If it is, print 'Manager' at Line+70
+*        - If not, leave Line+70 blank
 *
          MVC   Line+10(L'Emp_name),Emp_name
          MVC   Line+40(L'Emp_num),Emp_num
 *
-*  --->  Copy Employee date of birth to Line+50
-*        in the format yyyy-mm-dd
+*  --->  Non-US date format
 *
-*        Enter your instruction here (for the year)
-         MVC   Line+50(L'DOB_yyyy),DOB_yyyy
+         MVC   Line+50(L'DOB_dd),DOB_dd
+         MVI   Line+52,C'-'
+         MVC   Line+53(L'DOB_mm),DOB_mm
+         MVI   Line+55,C'-'
+         MVC   Line+56(L'DOB_yyyy),DOB_yyyy
 *
-*        Enter your instruction here (for the '-' separator)
-         MVI   Line+54,C'-'
+*  --->  Enter your instruction here (compare Emp_MGR with 'Y')
 *
-*        Enter your instruction here (for the month)
-         MVC   Line+55(L'DOB_mm),DOB_mm
+         CLI   Emp_MGR,C'Y'
 *
-*        Enter your instruction here (for the '-' separator)
-         MVI   Line+57,C'-'
+*  --->  Enter your instruction here (branch/jump if not)
 *
-*        Enter your instruction here (for the day)
-         MVC   Line+58(L'DOB_dd),DOB_dd
+         JNE   ZIP_code
+*
+*  --->  If a Manager, copy 'Manager' to Line+70
+*
+         MVC   Line+70(7),=C'Manager'
+         J     Print
+*
+*  --->  If not a Manager, put ZIP Code intead
+*
+ZIP_code MVC   Line+70(L'Emp_ZIP),Emp_ZIP
 *
 *---------------------------------------------------------------------*
-         LA    1,Output           R1 points to print record
+Print    LA    1,Output           R1 points to print record
          CALL  PUT1               Call print routine
 *---------------------------------------------------------------------*
 Return   L     13,SAVEAREA+4      Restore R13 (caller's save area)
@@ -48,13 +56,15 @@ Return   L     13,SAVEAREA+4      Restore R13 (caller's save area)
          BR    14                 Return to caller
 *---------------------------------------------------------------------*
 *
-Employee DC    0CL34              Employee:
+Employee DC    0CL40              Employee:
 Emp_name DC    CL20'Joan Smith'    Name
 Emp_num  DC    CL6'007777'         Number
 Emp_DOB  DC    0CL8                Date of Birth:
 DOB_yyyy DC    C'2001'              Year
 DOB_mm   DC    C'11'                Month
 DOB_dd   DC    C'25'                Day
+Emp_MGR  DC    C'N'                Employee is a manager
+Emp_ZIP  DC    C'90210'            ZIP Code
 *
 Output   DS    0CL121             Print record
 Space    DC    C' '               Print control (ignore for now)

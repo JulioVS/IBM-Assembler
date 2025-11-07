@@ -14,22 +14,31 @@ LAB404   CSECT ,             COMMA REQUIRED IF COMMENT ON THIS STMT
          LR    13,15              R13 points to my save area
 *---------------------------------------------------------------------*
 *
-*  --->
+*        For this lab, you must check if Emp_MGR is 'Y'
+*        - If it is, print 'Manager' at Line+70
+*        - If not, leave Line+70 blank
 *
-*
-*  --->
-*
-*
-*  --->
-*
-*---------------------------------------------------------------------*
          MVC   Line+10(L'Emp_name),Emp_name
          MVC   Line+40(L'Emp_num),Emp_num
+*
          MVC   Line+50(L'DOB_yyyy),DOB_yyyy
          MVI   Line+54,C'-'
          MVC   Line+55(L'DOB_mm),DOB_mm
          MVI   Line+57,C'-'
          MVC   Line+58(L'DOB_dd),DOB_dd
+*
+*  --->  Enter your instruction here (compare Emp_MGR with 'Y')
+*
+         CLI   Emp_MGR,C'Y'
+*
+*  --->  Enter your instruction here (branch/jump to Return if not)
+*
+         JNE   Return
+*
+*  --->  Enter your instruction here (copy 'Manager' to Line+70)
+*
+         MVC   Line+70(7),=C'Manager'
+*
 *---------------------------------------------------------------------*
          LA    1,Output           R1 points to print record
          CALL  PUT1               Call print routine
@@ -40,13 +49,13 @@ Return   L     13,SAVEAREA+4      Restore R13 (caller's save area)
          BR    14                 Return to caller
 *---------------------------------------------------------------------*
 *
-Employee DC    0CL34              Employee:
+Employee DC    0CL35              Employee:
 Emp_name DC    CL20'Joan Smith'    Name
 Emp_num  DC    CL6'007777'         Number
 Emp_DOB  DC    0CL8                Date of Birth:
-DOB_yyyy DC    C'2001'               Year
-DOB_mm   DC    C'11'                 Month
-DOB_dd   DC    C'25'                 Day
+DOB_yyyy DC    C'2001'              Year
+DOB_mm   DC    C'11'                Month
+DOB_dd   DC    C'25'                Day
 Emp_MGR  DC    C'Y'                Employee is a manager
 *
 Output   DS    0CL121             Print record

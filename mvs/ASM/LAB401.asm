@@ -14,13 +14,19 @@ LAB401   CSECT ,             COMMA REQUIRED IF COMMENT ON THIS STMT
          LR    13,15              R13 points to my save area
 *---------------------------------------------------------------------*
 *
-*  --->
+*        Copy Employee fields to Line for printing
 *
+*  --->  Copy Employee name to the corresponding print line field:
 *
-*  --->
+         MVC   Out_name,Emp_name
 *
+*  --->  Copy Employee number to the corresponding print line field:
 *
-*  --->
+         MVC   Out_num,Emp_num
+*
+*  --->  ...and the same for Employee date of birth:
+*
+         MVC   Out_DOB,Emp_DOB
 *
 *---------------------------------------------------------------------*
          LA    1,Output           R1 points to print record
@@ -36,9 +42,9 @@ Employee DC    0CL34              Employee:
 Emp_name DC    CL20'Joan Smith'    Name
 Emp_num  DC    CL6'007777'         Number
 Emp_DOB  DC    0CL8                Date of Birth:
-DOB_yyyy DC    C'2001'               Year
-DOB_mm   DC    C'11'                 Month
-DOB_dd   DC    C'25'                 Day
+DOB_yyyy DC    C'2001'              Year
+DOB_mm   DC    C'11'                Month
+DOB_dd   DC    C'25'                Day
 *
 Output   DS    0CL121             Print record
 Space    DC    C' '               Print control (ignore for now)
