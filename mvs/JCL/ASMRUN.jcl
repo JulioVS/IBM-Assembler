@@ -3,7 +3,7 @@
 //*   MY ASSEMBLY COMPILE & LINK + RUN JOB
 //*
 // EXPORT SYMLIST=(*)
-// SET MYPRG='LAB405'
+// SET MYPRG='LAB503'
 //*
 //CL       EXEC ASMACL,
 //             PARM.L=(MAP,LET,LIST),
