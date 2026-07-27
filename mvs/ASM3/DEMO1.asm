@@ -5,8 +5,8 @@ DEMO1    CSECT ,             COMMA REQUIRED IF COMMENT ON THIS STMT
 *---------------------------------------------------------------------*
 *
 *  --->  1. Submit this unchanged. You should see this message when the
-*           job ends: "DEMO1 ENDED AT ESSMVS1 MAXCC=0010"
-*           Note 0010 is the content of R15
+*           job ends: "DEMO1 ENDED AT ESSMVS1 MAXCC=0010".
+*           Note 0010 is the content of R15.
 *
 *  --->  2. Change the number to other small (less than 100)
 *           number and resubmit a few times.
