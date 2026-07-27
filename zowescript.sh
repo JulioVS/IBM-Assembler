@@ -6,6 +6,7 @@ rm -r mvs
 
 # TSO/MVS LIBRARIES (PDS)
 zowe files download am  "Z45864.ASM1"       -e ".asm" --po
+zowe files download am  "Z45864.ASM3"       -e ".asm" --po
 zowe files download amm "Z45864.JCL" "ASM*" -e ".jcl" --po
 
 # RENAME
