@@ -3,12 +3,17 @@
 //*   MY ASSEMBLY COMPILE & LINK + RUN JOB
 //*
 // EXPORT SYMLIST=(*)
-// SET MYPRG='LAB107'   z/Architecture Assembler Language, Part 3 Labs
+// SET MYPRG='LAB207'   z/Architecture Assembler Language, Part 3 Labs
 //*
-//CL       EXEC ASMACL,MBR=&MYPRG
+//CL       EXEC ASMACL,
+//             PARM.L=(MAP,LET,LIST),
+//             MBR=&MYPRG
+//*
 //C.SYSIN    DD DISP=SHR,DSN=&SYSUID..ASM3(&MYPRG)
+//L.SYSLIB   DD DISP=SHR,DSN=&SYSUID..LOAD
 //*
 //GO       EXEC PGM=&MYPRG
+//*
 //STEPLIB    DD DISP=SHR,DSN=&SYSUID..LOAD
 //SYSPRINT   DD SYSOUT=*
 //
