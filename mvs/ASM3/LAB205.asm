@@ -138,7 +138,7 @@ Employees DS   (EMP_items)CL34
          DC    C'07'              MONTH
          DC    C'27'              DAY
 *
-         DC    CL20'JOSH HENRY'   NAME
+         DC    CL20'JOSS HENRY'   NAME
          DC    CL6'888888'        NUMBER
          DC    C'2008'            YEAR
          DC    C'08'              MONTH

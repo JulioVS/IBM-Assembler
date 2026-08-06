@@ -10,7 +10,7 @@
 *  --->  3. Change the instructions that populate the print line so
 *           that they use the new definitions.
 *
-*  --->  3. Submit again and check that the listing is the same.
+*  --->  4. Submit again and check that the listing is the same.
 *
 *---------------------------------------------------------------------*
 LAB207   CSECT
@@ -125,7 +125,7 @@ Employees DS   (EMP_items)CL34
          DC    C'07'              MONTH
          DC    C'27'              DAY
 *
-         DC    CL20'JOSH HENRY'   NAME
+         DC    CL20'JOSS HENRY'   NAME
          DC    CL6'888888'        NUMBER
          DC    C'2008'            YEAR
          DC    C'08'              MONTH
