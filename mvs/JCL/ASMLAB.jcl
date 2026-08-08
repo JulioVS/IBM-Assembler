@@ -3,17 +3,28 @@
 //*   MY ASSEMBLY COMPILE & LINK + RUN JOB
 //*
 // EXPORT SYMLIST=(*)
-// SET MYPRG='PROG1'   z/Architecture Assembler Language, Part 3 Labs
+// SET MYPRG='LAB405'   z/Architecture Assembler Language, Part 3 Labs
 //*
 //CL       EXEC ASMACL,
-//             PARM.L=(MAP,LET,LIST),
+//* //             PARM.L=(MAP,LET,LIST),
+//             PARM.L='MAP,LET,LIST,RMODE(SPLIT)',        LAB405 only!
 //             MBR=&MYPRG
 //*
 //C.SYSIN    DD DISP=SHR,DSN=&SYSUID..ASM3(&MYPRG)
 //L.SYSLIB   DD DISP=SHR,DSN=&SYSUID..LOAD
-//*
+
 //GO       EXEC PGM=&MYPRG
 //*
 //STEPLIB    DD DISP=SHR,DSN=&SYSUID..LOAD
 //SYSPRINT   DD SYSOUT=*
+//SYSIN      DD *
+JOAN ALLEN          11111120010121
+JANE BAKER          22222220020222
+JOHN CLARK          33333320030323
+JOEL DAVIS          44444420040424
+JACK EVANS          55555520050525
+JILL FRANK          66666620060626
+JAKE GREEN          77777720070727
+JOSS HENRY          88888820080828
+/*
 //
